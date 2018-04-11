@@ -1,0 +1,38 @@
+/*	COLORS
+–––––––––––––––––––––––––––*/
+
+$white: #ffffff;
+$light-gray: #f6f6f6;
+$gray: #282828;
+$dark-gray: #2c303d;
+$pink: #ce2c52;
+$asphalt-gray: #d1d1d1;
+$blue: #77d8e7;
+$light-green: #96c795;
+$pale-pink: #ce92a1;
+$purple: #aa93cf;
+$mint: rgba(138, 230, 207, 1);
+$light-mint: rgba(138, 230, 207, 0.5);
+$dark-mint: #60D0B4;
+$navy-blue: #2c87ce;
+$star-pink: #ce2c52;
+$star-silver: #ababab;
+
+/*	FONTS
+–––––––––––––––––––––––––––*/
+
+$opensans: 'Open Sans', sans-serif; 
+$oswald: 'Oswald', sans-serif;
+$icons: 'icons', sans-serif;
+
+/*	BREAKPOINTS
+–––––––––––––––––––––––––––*/
+
+$breakpoints: (
+	"phone-xs":     325px,
+    "phone":        415px,
+    "phone-wide":   640px,
+    "phablet":      680px,
+    "tablet": 		768px,
+    "wide-tablet":  900px
+);

@@ -1,0 +1,60 @@
+/*	FONTS
+------------------------*/
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700');
+@import url('https://fonts.googleapis.com/css?family=Oswald:300,400,700');
+
+@font-face {
+    font-family: "icons";
+    src: url("../fonts/icons/icons.eot?") format("eot"),
+         url("../fonts/icons/icons.woff2") format("woff2"),
+         url("../fonts/icons/icons.woff") format("woff"),
+         url("../fonts/icons/icons.ttf") format("truetype"),
+         url("../fonts/icons/icons.svg#icons") format("svg");
+}
+
+  .font-icons
+    {
+      font-family: "icons";
+      font-style: normal;
+      font-weight: normal;
+      speak: none;
+      display: inline-block;
+      text-decoration: inherit;
+      width: 1em;
+      text-align: center;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1em;
+      margin: auto;    
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+/*	TYPOGRAPHY
+–––––––––––––––––––––––––––*/
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  font-family: $opensans;
+  color: #555;
+  font-size: 100%;
+  line-height: 1;
+  background-color: $light-gray;
+}
+
+
+/* ------ Normalize ----- */
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+h1,h2,h3,h4,h5,h6,p,button,ul{
+	margin: 0;
+  padding: 0;
+}

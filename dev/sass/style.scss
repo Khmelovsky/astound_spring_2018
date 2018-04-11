@@ -1,0 +1,622 @@
+@import "includes/variables";
+@import "includes/base";
+@import "includes/mixins";
+@import "bourbon";
+
+
+.c-card__product-title-tablet {
+	display: none;
+	max-width: 934px;
+	width: 100%;
+	padding: 30px 50px;
+	@include media('wide-tablet', max) {
+		@include display-flex();
+		max-width: 720px;
+		padding:  25px 0 25px 0;
+	}
+	@include media('tablet', max) {
+		padding: 25px 10px;
+	}
+	@include media('phablet', max) {
+		max-width: 300px;
+		align-self: flex-start;
+	}
+	@include media('phone-wide', max) {
+		align-self: center;
+		max-width: 305px;
+	}
+	@include media('phone', max) {
+		align-self: center;
+		max-width: 270px;
+	}
+	h1{
+		@include fonts(24px, $oswald, 700, $dark-gray)
+			text-transform: uppercase;
+	}
+}
+.c-card {
+	@include display-flex();
+	max-width: 934px;
+	width: 100%;
+	padding: 30px 50px;
+	@include media('wide-tablet', max) {
+		max-width: 720px;
+		padding:  0 0 30px 0;
+	}
+	@include media('tablet', max) {
+		padding: 0 10px 30px 10px;
+	}
+	@include media('phone-wide', max) {
+		flex-direction: column;
+	}
+	.c-card__item-preview {
+	@include display-flex();
+	align-content: right;
+	max-width: 398px;
+	width: 100%;
+	height: 415px;
+	background-color: #eaf2f4;
+	margin-right: 30px;
+	position: relative;
+	@include media('wide-tablet', max) {
+		height: 355px;
+		margin-right: 15px;
+	}
+	@include media('phone-wide', max) {
+		margin-right: 0;
+		margin-bottom: 20px;
+	}
+	.c-card__social-tablet{
+		display: none;
+		position: absolute;
+		left: 15px;
+		top: 15px;
+		@include media('wide-tablet', max) {
+			display: block;
+		}
+			ul {
+					@include display-flex();
+					flex-direction: column;
+					justify-content: space-around;
+					width: 100%;
+					height: 190px;
+				li {
+						list-style-type: none;
+						a{
+							@include display-flex();
+							@include fonts(18px, $icons, 700, $navy-blue)
+							text-decoration: none;
+							background-color: transparent;
+							@include buttons(38px, 38px, 2px solid $navy-blue, 50%)
+						}
+				}
+			}
+	}
+	.c-card__image {
+		margin: auto;
+		flex-basis: auto;
+			@include media('wide-tablet', max) {
+				max-width: 195px;
+			}
+	}
+	@include media('phone-wide', max) {
+		align-self: center;
+	}
+}
+.c-card__order-info {
+	@include display-flex();
+	flex-direction: column;
+	justify-content: space-between;
+	@include media('wide-tablet', max) {
+		height: 415px;
+	@include media('tablet', max) {
+		align-self: center;
+		max-width: 398px;
+	}
+	@include media('phone', max) {
+		height: auto;
+	}
+	}
+
+	.c-card__product-title {
+			@include fonts(24px, $oswald, 700, $dark-gray)
+			text-transform: uppercase;
+			@include media('wide-tablet', max) {
+				display: none;
+			}
+		}
+	.c-card__vendor-code {
+			font-size: 10px;
+			font-family: $opensans;
+			@include media('wide-tablet', max) {
+				font-size: 11px;
+			}
+		}
+	.c-card__price-block {
+			@include display-flex();
+			flex-direction: row;
+			justify-content: space-between;
+			width: 180px;
+			@include media('wide-tablet', max) {
+				width: 250px;
+			}
+			@include media('tablet', max) {
+				margin: 15px 0;
+			}
+			.c-card__strike-sale {
+				@include fonts(24px, $opensans, 700, $dark-gray)
+				&.line-through{
+					text-decoration: line-through;
+				}
+				@include media('wide-tablet', max) {
+					@include fonts(36px, $opensans, 700, $dark-gray)
+				}
+			}
+			.c-card__current-price {
+				@include fonts(24px, $opensans, 700, $pink)
+				@include media('wide-tablet', max) {
+					@include fonts(36px, $opensans, 700, $pink)
+				}
+			}
+		}
+.c-card__rating-wrap{
+	@include display-flex();
+	flex-direction: row;
+	.c-card__rating {
+  	cursor: pointer;
+  	&:hover .star polygon {
+    fill: #ce2c52 !important;
+  }
+  .star {
+    float: left;
+    polygon {
+      fill: #ababab;
+    }
+    &:hover ~ .star polygon {
+      fill: #ababab !important;
+    }
+  }
+  &[data-stars] .star polygon {
+    fill: #ce2c52;
+  }
+  &[data-stars="1"] .star:nth-child(1) ~ .star polygon, 
+  &[data-stars="2"] .star:nth-child(2) ~ .star polygon, 
+  &[data-stars="3"] .star:nth-child(3) ~ .star polygon, 
+  &[data-stars="4"] .star:nth-child(4) ~ .star polygon, 
+  &[data-stars="5"] .star:nth-child(5) ~ .star polygon {
+    fill: #ababab;
+  }
+}
+	.c-card__share{
+		@include display-flex();
+		position: relative;
+		@include media('wide-tablet', max) {
+			display: none;
+		}
+		span {
+			@include fonts(18px, $opensans, 700, $navy-blue);
+			margin: auto;
+			margin-left: 10px;
+			cursor: pointer;
+		}
+		.c-card__share-toggle {
+			display: none;
+			flex-directon: row;
+			width: 280px;
+			position: absolute;
+			top: 0;
+			left: calc(50% - -10px);
+			transform: translate(-50%, 50%);
+			background-color: $white;
+			padding: 20px 15px;
+			@include shadow(0px 0px 8px 1px rgba(0,0,0,0.4));
+			&:before{
+				content: "";
+    		position: absolute;
+    		width: 0;
+    		height: 0;
+    		top: 1px;
+    		left: 50%;
+    		transform: translate(-50%, -50%);
+    		box-sizing: border-box;  
+    		background-color: $white;
+    		border: 6px solid black;
+    		border-color: transparent transparent $white $white;
+   			transform-origin: 0 0;
+    		transform: rotate(135deg);
+    		box-shadow: -3px 2px 6px 0 rgba(0, 0, 0, 0.4);
+
+			}
+			ul {
+					@include display-flex();
+					flex-direction: row;
+					justify-content: space-around;
+					width: 100%;
+				li {
+						list-style-type: none;
+						a{
+							@include display-flex();
+							@include fonts(18px, $icons, 700, $navy-blue)
+							text-decoration: none;
+							background-color: $white;
+							@include buttons(38px, 38px, 2px solid $navy-blue, 50%)
+						}
+						&:last-child a{
+							@include buttons(38px, 38px, none, 50%)
+							font-size: 40px;
+							position: relative;
+							top: -3px;
+							cursor: pointer;
+						}
+				}
+			}
+			&.toggle-show{
+					display: block;
+			}
+		}
+	}
+}
+	.c-card__description-tablet {
+		display: none;
+		span{
+				@include fonts(14px, $opensans, 700, $dark-gray)
+				text-transform: uppercase;
+		}
+		@include media('wide-tablet', max) {
+			@include display-flex();
+		}
+		@include media('tablet', max) {
+			display: none;
+		}
+		
+	}
+	.c-card__social-mobile {
+			display: none;
+			@include media('phone', max) {
+				margin: 30px 0;
+				@include display-flex();
+			}
+		ul {
+					@include display-flex();
+					flex-direction: row;
+					justify-content: space-between;
+					max-width: 200px;
+					width: 100%;
+				li {
+						list-style-type: none;
+						a{
+							@include display-flex();
+							@include fonts(18px, $icons, 700, $navy-blue)
+							text-decoration: none;
+							background-color: transparent;
+							@include buttons(38px, 38px, 2px solid $navy-blue, 50%)
+						}
+				}
+			}
+	}
+	.c-card__description {
+		width: 360px;
+			@include media('tablet', max) {
+			width: 100%;
+		}
+		p {
+			@include fonts(13px, $opensans, 400, $gray)
+			line-height: 1.3;
+			@include media('wide-tablet', max) {
+				width: 290px;
+			}
+			@include media('wide-tablet', max) {
+				@include fonts(12px, $opensans, 400, $gray)
+			}
+		}
+	}
+}
+	.c-card__cart-form {
+		.c-card__size {
+				@include display-flex();
+				flex-direction: row;
+				//margin-top: 15px;
+					@include media('phone', max) {
+						flex-direction: column;
+				}
+			span {
+					@include fonts(14px, $opensans, 700, $dark-gray)
+					text-transform: uppercase;
+					margin: auto 30px auto 0;
+					@include media('phone', max) {
+						display: none;
+				}
+				&.mobile {
+					@include media('phone', min){
+						display: none;
+					}
+					@include media('phone', max) {
+						@include display-flex();
+						flex-direction: column;
+						margin: 25px 0 15px 0;
+					}
+				}
+			}
+	
+				.c-card__size-button{
+						@include display-flex();
+						flex-direction: row;
+						justify-content: space-between;
+						width: 140px;
+					button {
+							@include fonts(13px, $opensans, 700, $dark-gray)
+							@include buttons(38px, 38px, 1px solid $asphalt-gray, 50%)
+							text-transform: uppercase;
+							background-color: $white;
+							cursor: pointer;
+							outline: none;
+								&:hover,:focus {
+									@include shadow(0px 0px 8px 1px rgba(0,0,0,0.4));
+									transition: .3s ease;
+								}
+								&:not(:hover),:not(:focus){
+									transition: .3s ease;
+								}
+						&.selected-size{
+							@include shadow(0px 0px 8px 1px rgba(0,0,0,0.4));
+						}
+					}
+					
+				}
+		}
+		.c-card__color{
+				@include display-flex();
+				flex-direction: row;
+				//margin-top: 15px;
+				@include media('phone', max) {
+						flex-direction: column;
+				}
+			span {
+					@include fonts(14px, $opensans, 700, $dark-gray)
+					text-transform: uppercase;	
+					margin: auto 12px auto 0;
+					@include media('phone', max) {
+						display: none;
+				}
+				&.mobile {
+					@include media('phone', min){
+						display: none;
+					}
+					@include media('phone', max) {
+						@include display-flex();
+						flex-direction: column;
+						margin: 25px 0 15px 0;
+					}
+				}
+			}
+			.c-card__color-button{
+						@include display-flex();
+						flex-direction: row;
+						justify-content: space-between;
+						width: 190px;
+						margin: 15px 0;
+						@include media('phone', max) {
+							margin: 0;
+						}
+					button {
+							@include fonts(13px, $opensans, 700, $dark-gray)
+							@include buttons(38px, 38px, none, 50%)
+							text-transform: uppercase;
+							background-color: $white;
+							cursor: pointer;
+							outline: none;
+								&.blue{
+									background-color: $blue;
+								}
+								&.green{
+									background-color: $light-green;
+								}
+								&.pink{
+									background-color: $pale-pink;
+								}
+								&.purple{
+									background-color: $purple;;
+								}
+								&:hover,:focus {
+									@include shadow(0px 0px 8px 1px rgba(0,0,0,0.4))
+									transition: .3s ease;
+								}
+								&:not(:hover),:not(:focus){
+									transition: .3s ease;
+								}
+							&.selected-color{
+								@include shadow(0px 0px 8px 1px rgba(0,0,0,0.4));
+						}
+					}
+				}		
+		}
+			.c-card__cart-button{
+					@include display-flex();
+					flex-direction: row;
+					//margin-top: 15px;
+					@include media('tablet', max) {
+						justify-content: center;
+					}
+					@include media('phone', max) {
+						margin-top: 40px;
+					}
+					button{
+							@include fonts(14px, $opensans, 700, $dark-gray)
+							text-transform: uppercase;
+							line-height: 1;
+							border: none;
+							border-radius: 2em;
+							padding: 17px 56px;
+							background-color: $mint;
+							cursor: pointer;
+							outline: none;
+							&:hover,:focus{
+								background-color: $dark-mint;
+								transition: .3s ease;
+							}
+							&:not(:hover),:not(:focus){
+									transition: .3s ease;
+								}
+					}
+				}
+	}
+}
+
+// component  items stack
+.l-stack-wrap{
+	position: relative;
+	.c-stack__arrow-before{
+    			display: none;
+    			position: absolute;
+    			top: 50%;
+    			left: -45px;
+    			transform: translate(-0%, -50%);
+    			z-index: 1;
+    			cursor: pointer;
+    			@include media('phone', max) {
+    				display: block;
+    			}
+    				@include media('phone-xs', max) {
+    					left: -35px;
+    			}
+    			i{
+    				color: #949494;
+    				font-size: 40px;
+    			}
+    		}
+    		.c-stack__arrow-next {
+    			display: none;
+				position: absolute;
+    			top: 50%;
+    			right: -45px;
+    			transform: translate(-0%, -50%);
+    			z-index: 1;
+    			cursor: pointer;
+    			@include media('phone', max) {
+    				display: block;
+    			}
+    			@include media('phone-xs', max) {
+    				right: -35px;
+    			}
+    			i{
+    				color: #949494;
+    				font-size: 40px;
+    			}
+    		}
+}
+.c-stack {
+		@include display-flex();
+		flex-direction: column;
+		max-width: 934px;
+    width: 100%;
+    padding: 30px 50px;
+    @include media('wide-tablet', max) {
+    	max-width: 640px;
+    	padding: 30px
+    }
+	h4 {
+		@include fonts(22px, $opensans, 700, $dark-gray)
+		text-transform: uppercase;
+		text-align: left;
+		margin-bottom: 20px;
+		@include media('wide-tablet', max) {
+			text-align: center;
+		}
+	}
+	@include media('phone', max) {
+			position: relative;
+			overflow: hidden;
+   			width: 265px;
+    		padding: 0;
+    		
+		}
+	.c-stack__item-wrap {
+		@include display-flex();
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		@include media('wide-tablet', max) {
+			justify-content: space-around;
+		}
+		@include media('phone', max) {
+			width: 9999px;
+			transition: margin-left 250ms;
+			justify-content: unset;
+
+		}
+		.c-stack__item {
+			position: relative;
+			cursor: pointer;
+			margin-bottom: 20px;
+			.c-stack__item-discount {
+				position: absolute;
+				bottom: 48px;
+				right: 0;
+				background-color: $mint;
+				padding: 5px 20px;
+				@include media('wide-tablet', max) {
+					width: 100%;
+					background-color: rgba(138, 230, 207, 0.8);
+					bottom: 28px;
+				}
+				.c-stack__strike-sale {
+					@include fonts(16px, $opensans, 700, $dark-gray)
+					&.line-through{
+							text-decoration: line-through;
+						}
+						@include media('wide-tablet', max) {
+							display: none;
+						}
+					}
+				.c-stack__current-price{
+					@include fonts(16px, $opensans, 700, $pink)
+					margin-left: 8px;
+					@include media('wide-tablet', max) {
+						margin-left: 0;
+						@include display-flex();
+						justify-content: center;
+						@include fonts(22px, $opensans, 700, $pink)
+					}
+					}
+				}
+			.c-stack__item-price{
+				position: absolute;
+				bottom: 48px;
+				right: 0;
+				background-color: $mint;
+				padding: 5px 3px;
+					@include media('wide-tablet', max){
+						width: 100%;
+						background-color: rgba(138, 230, 207, 0.8);
+						bottom: 28px;
+					}
+				.c-stack__current-price{
+						@include fonts(16px, $opensans, 700, $dark-gray)
+						@include media('wide-tablet', max) {
+							margin-left: 0;
+							@include display-flex();
+							justify-content: center;
+							@include fonts(22px, $opensans, 700, $dark-gray)
+						}
+				}
+			}
+				&:hover,:focus {
+					.c-stack__image{
+						@include shadow(0px 0px 10px 2px rgba(0,0,0,0.4))
+						transition: .3s ease;			
+				}
+		}
+				&:not(:hover),:not(:focus){
+						.c-stack__image {
+							transition: .3s ease;			
+						}
+				}
+			.c-stack__product-name {
+				@include fonts(14px, $opensans, 700, $dark-gray)
+				text-transform: uppercase;
+				text-align: center;
+				margin-top: 12px;
+			}
+		}
+	}
+}
